@@ -12,8 +12,8 @@ export function SignUpButton({
   type: VariantProps<typeof buttonVariants>["variant"];
   children: React.ReactNode;
 }) {
-  async function handleGithub() {
-    signIn("github", { callbackUrl: "/billing" });
+  async function handleGoogleLogin() {
+    signIn("google", { callbackUrl: "/billing" });
   }
 
   return (
@@ -22,7 +22,7 @@ export function SignUpButton({
       variant={type}
       className="w-[256px]"
       onClick={() => {
-        handleGithub();
+        handleGoogleLogin();
       }}
     >
       {children}

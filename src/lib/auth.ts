@@ -1,6 +1,6 @@
 import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { NextAuthOptions } from "next-auth";
-import GithubProvider from "next-auth/providers/github";
+import GoogleProvider from "next-auth/providers/google";
 import { OrgInfo } from "tier";
 
 import { env } from "@/env.mjs";
@@ -14,7 +14,7 @@ export const authOptions: NextAuthOptions = {
     strategy: "jwt",
   },
   providers: [
-    GithubProvider({
+    GoogleProvider({
       clientId: env.GITHUB_CLIENT_ID,
       clientSecret: env.GITHUB_CLIENT_SECRET,
     }),
@@ -27,11 +27,9 @@ export const authOptions: NextAuthOptions = {
         session.user.email = token.email;
         session.user.image = token.picture;
 
-        // Check if org/user already exists in Stripe, else create and subscribe to free tier
         try {
           const c = await tier.lookupOrg(`org:${session?.user?.id}`);
           console.log("Checking if user/org already exists in Tier");
-          console.log(c);
         } catch (error) {
           // Auto subscribe user to the free plan if they do not have any subscription already.
           // Add OrgInfo to create/update the customer profile while subscribing

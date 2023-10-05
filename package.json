@@ -1,8 +1,8 @@
 {
-  "name": "tier-vercel-openai",
+  "name": "swift-link",
   "version": "1.0.0",
   "author": {
-    "name": "Tier",
+    "name": "Swift",
     "url": "https://tier.run"
   },
   "scripts": {

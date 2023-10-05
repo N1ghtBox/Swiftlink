@@ -8,9 +8,7 @@ import {
 import { tier } from "@/lib/tier";
 
 export const pullPricingTableData = async () => {
-  // Pull the all the pricing model details from Tier Cloud
   const tierPricingData = await tier.pull();
-  console.log(tierPricingData);
 
   const pricingTableData: PricingTableData[] = tierPlanConstants
     .map((_planConstant) => {
@@ -21,9 +19,9 @@ export const pullPricingTableData = async () => {
         // Get Tier Plan
         const tierPlan = Object.entries(tierPricingData.plans).find(
           (_plan) => _plan[0] === _planConstant.planId
-        );
+        ) as [string, { title: string; features: any }];
 
-        // Extract title
+        if (!tierPlan) return;
         const name = tierPlan?.[1].title as string;
 
         // Extract base price

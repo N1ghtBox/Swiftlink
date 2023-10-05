@@ -5,8 +5,8 @@ import { signIn } from "next-auth/react";
 import { Button } from "@/components/ui/Button";
 
 export function SignUpButton({ className }: { className: string }) {
-  async function handleGithub() {
-    signIn("github", { callbackUrl: "/generate" });
+  async function handleGoogleLogout() {
+    signIn("google", { callbackUrl: "/generate" });
   }
 
   return (
@@ -16,7 +16,7 @@ export function SignUpButton({ className }: { className: string }) {
         variant="primary"
         className={className}
         onClick={() => {
-          handleGithub();
+          handleGoogleLogout();
         }}
       >
         Sign up with Github

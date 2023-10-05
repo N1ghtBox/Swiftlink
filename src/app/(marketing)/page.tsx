@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 import { BgPattern } from "@/components/ui/Bgpattern";
 import { SignUpButton } from "@/components/marketing/LandingSignUp";
 

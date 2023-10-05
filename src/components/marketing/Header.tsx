@@ -7,7 +7,6 @@ import { Dialog } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 
-import { Stargazer } from "@/components/ui/Stargazer";
 import { SignInButton } from "@/components/marketing/LandingSignIn";
 import { SignUpButton } from "@/components/marketing/LandingSignUp";
 import { BlipLogo } from "@/res/logos/BlipLogo";
@@ -17,7 +16,7 @@ const navigation = [
   { name: "Pricing", href: "/pricing" },
 ];
 
-export function Header({ stargazers_count }: { stargazers_count: number }) {
+export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   let pathname = usePathname();
@@ -36,7 +35,7 @@ export function Header({ stargazers_count }: { stargazers_count: number }) {
               <span className="body-semibold">Blip</span>
             </div>
           </Link>
-          <Stargazer count={stargazers_count} />
+          {/* <Stargazer count={stargazers_count} /> */}
         </div>
         <div className="flex lg:hidden">
           <button

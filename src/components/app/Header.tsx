@@ -9,16 +9,14 @@ import clsx from "clsx";
 import { signOut } from "next-auth/react";
 
 import { Button } from "@/components/ui/Button";
-import { Stargazer } from "@/components/ui/Stargazer";
 import { BlipLogo } from "@/res/logos/BlipLogo";
 
 const navigation = [
-  { name: "Generate copy", href: "/generate" },
   { name: "History", href: "/history" },
   { name: "Billing", href: "/billing" },
 ];
 
-export function Header({ stargazers_count }: { stargazers_count: number }) {
+export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   let pathname = usePathname();
@@ -41,7 +39,7 @@ export function Header({ stargazers_count }: { stargazers_count: number }) {
               <span className="body-semibold">Blip</span>
             </div>
           </Link>
-          <Stargazer count={stargazers_count} />
+          {/* <Stargazer count={stargazers_count} /> */}
         </div>
         <div className="flex lg:hidden">
           <button
